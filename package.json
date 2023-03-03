@@ -1,14 +1,14 @@
 {
   "name": "flocking",
-  "version": "2.1.0",
+  "version": "3.0.1",
   "description": "Creative audio synthesis for the Web",
   "author": "Colin Clark",
   "homepage": "https://flockingjs.org/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/colinbdclark/Flocking.git"
+    "url": "git://github.com/continuing-creativity/Flocking.git"
   },
-  "bugs": "https://github.com/colinbdclark/Flocking/issues",
+  "bugs": "https://github.com/continuing-creativity/Flocking/issues",
   "license": "(MIT OR GPL-2.0)",
   "keywords": [
     "Flocking",
@@ -21,30 +21,26 @@
   "readmeFilename": "README.md",
   "browser": "dist/flocking-all.js",
   "devDependencies": {
-    "grunt": "1.0.4",
-    "grunt-contrib-clean": "2.0.0",
-    "grunt-contrib-concat": "1.0.1",
+    "grunt": "1.5.2",
+    "grunt-contrib-clean": "2.0.1",
+    "grunt-contrib-concat": "2.1.0",
+    "grunt-contrib-uglify": "5.2.1",
     "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-jshint": "2.1.0",
+    "grunt-contrib-jshint": "3.2.0",
     "sheep-benchmark": "colinbdclark/sheep.js",
     "requirejs": "2.3.6",
-    "testem": "2.15.1"
+    "testem": "3.6.0"
   },
   "dependencies": {
-    "jquery": "3.4.1",
-    "infusion": "3.0.0-dev.20190328T144119Z.ec44dbfab",
-    "codemirror-infusion": "2.2.1",
+    "jquery": "3.6.0",
+    "infusion": "3.0.0",
+    "codemirror-infusion": "2.4.1",
     "jsplumb": "1.7.9",
-    "dagre": "0.8.4",
+    "dagre": "0.8.5",
     "normalize.css": "8.0.1"
   },
   "scripts": {
     "prepare": "node_modules/.bin/grunt",
-    "test": "node_modules/.bin/testem ci --file tests/unit/testem.json",
-    "linux-vm-test": "npm run clean-modules && vagrant up fedora27 && vagrant ci test fedora27",
-    "windows-vm-test": "npm run clean-modules && vagrant up windows10 && vagrant ci test windows10",
-    "clean-modules": "rm -r node_modules",
-    "all-vm-test": "npm run linux-vm-test && npm run windows-vm-test && vagrant halt",
-    "destroy-vms": "vagrant destroy -f"
+    "test": "node_modules/.bin/testem ci --file tests/unit/testem.json"
   }
 }

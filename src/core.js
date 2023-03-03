@@ -1,6 +1,6 @@
 /*
  * Flocking - Creative audio synthesis for the Web!
- * https://github.com/colinbdclark/flocking
+ * https://github.com/continuing-creativity/flocking
  *
  * Copyright 2011-2018, Colin Clark
  * Dual licensed under the MIT and GPL Version 2 licenses.
@@ -965,13 +965,20 @@ var fluid = fluid || require("infusion"),
                 singleTransform: {
                     type: "fluid.transforms.free",
                     func: "flock.audioSystem.clampNumBuses",
-                    args: ["{that}.model.numBuses", "{that}.options.outputBusRange", "{that}.model.chans"]
+                    args: [
+                        "{that}.model.numBuses",
+                        "{that}.options.outputBusRange",
+                        "{that}.model.chans",
+                        "{that}.model.numInputBuses"
+                    ]
                 }
             }
         ]
     });
 
-    flock.audioSystem.clampNumBuses = function (numBuses, outputBusRange, chans) {
+    flock.audioSystem.clampNumBuses = function (numBuses, outputBusRange, chans, numInputBuses) {
+        var numInOut = numInputBuses + chans;
+        numBuses = Math.max(numBuses, numInOut);
         numBuses = Math.max(numBuses, Math.max(chans, outputBusRange.min));
         numBuses = Math.min(numBuses, outputBusRange.max);
 

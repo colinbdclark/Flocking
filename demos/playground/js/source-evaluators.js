@@ -5,7 +5,7 @@
  * Dual licensed under the MIT and GPL Version 2 licenses.
  */
 
-/*global require*/
+/*global require, JSON5*/
 
 var fluid = fluid || require("infusion"),
     flock = fluid.registerNamespace("flock");
@@ -139,7 +139,7 @@ var fluid = fluid || require("infusion"),
 
     flock.sourceEvaluator.json.tryParse = function (source, onParseError) {
         try {
-            return JSON.parse(source);
+            return JSON5.parse(source);
         } catch (e) {
             onParseError(e, source);
         }
