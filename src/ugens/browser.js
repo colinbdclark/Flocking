@@ -1,9 +1,10 @@
 /*
 * Flocking Browser-Dependent Unit Generators
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2013-2014, Colin Clark
-* Dual licensed under the MIT and GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require, Float32Array, window*/
@@ -262,7 +263,7 @@ var fluid = fluid || require("infusion"),
         // offset() receives an element without client rects
         // (i.e. document, window, html, body, etc.).
         // This is a fix for
-        // https://github.com/continuing-creativity/Flocking/issues/205
+        // https://github.com/lichen-community-systems/Flocking/issues/205
         var offset = target.getClientRects ? target.offset() :
             undefined;
 

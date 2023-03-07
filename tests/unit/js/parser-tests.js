@@ -1,9 +1,10 @@
 /*!
-* Flocking Parser Tests
-* https://github.com/continuing-creativity/flocking
+* Flocking interpreter Tests
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-2015, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -17,7 +18,7 @@ var fluid = fluid || require("infusion"),
 
     var QUnit = fluid.registerNamespace("QUnit");
 
-    QUnit.module("flock.parse.ugenForDef");
+    QUnit.module("flock.interpret.ugenForDef");
 
     var environment = flock.silentEnviro();
 
@@ -38,7 +39,7 @@ var fluid = fluid || require("infusion"),
             }
         };
 
-        var actual = flock.parse.ugenForDef(def);
+        var actual = flock.interpret.ugenForDef(def);
         QUnit.equal(actual.inputs.freq.inputs.value, 299,
             "A value input should not be expanded.");
         jqUnit.assertDeepEq("A table input should not be expanded.",
@@ -66,7 +67,7 @@ var fluid = fluid || require("infusion"),
             }
         };
 
-        var parsed = flock.parse.ugenForDef(ugenDef);
+        var parsed = flock.interpret.ugenForDef(ugenDef);
         QUnit.equal(parsed.rate, flock.rates.CONTROL,
             "A compressed control rate should be expanded to its full value.");
         QUnit.equal(parsed.inputs.freq.rate, flock.rates.AUDIO,
@@ -83,7 +84,7 @@ var fluid = fluid || require("infusion"),
             phase: 1.0
         };
 
-        var ugen = flock.parse.ugenForDef(sinOscDef);
+        var ugen = flock.interpret.ugenForDef(sinOscDef);
         QUnit.equal(ugen.rate, flock.rates.AUDIO,
             "The rate option should be supplied by the ugen's defaults.");
         QUnit.equal(ugen.inputs.freq.model.value, 440,

@@ -1,0 +1,10 @@
+{
+    "test_page": "tests/core-unit/all-core-tests.html",
+    "timeout": 300,
+    "skip": "Brave,IE,Headless Chrome,Headless Firefox,Headless Brave,HeadlessOpera,Opera,PhantomJS",
+    "browser_args": {
+        "Chrome": [
+            "--autoplay-policy=no-user-gesture-required"
+        ]
+    }
+}

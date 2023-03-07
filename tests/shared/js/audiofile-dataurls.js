@@ -1,9 +1,10 @@
 /*!
 * Flocking - Audio File Data URLs
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2012, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/

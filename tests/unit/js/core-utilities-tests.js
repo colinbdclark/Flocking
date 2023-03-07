@@ -1,9 +1,10 @@
 /*
  * Flocking Core Utilities Tests
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2011-2017, Colin Clark
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
+
  */
 
 /*global require*/
@@ -79,11 +80,11 @@ var fluid = fluid || require("infusion"),
         });
     });
 
-    QUnit.test("flock.parseMidiString", function () {
+    QUnit.test("flock.interpretMidiString", function () {
         QUnit.expect(8);
 
         function runMidiStringTest(testSpec) {
-            var actual = flock.parseMidiString(testSpec.note);
+            var actual = flock.interpretMidiString(testSpec.note);
             QUnit.deepEqual(actual, testSpec.expected, testSpec.name);
         }
 

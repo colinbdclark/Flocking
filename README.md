@@ -52,7 +52,7 @@ Status and Roadmap
 
 Flocking is in active development. It has bugs and it is growing quickly.
 
-The project's [development roadmap](https://github.com/continuing-creativity/Flocking/wiki/Release-Plan)
+The project's [development roadmap](https://github.com/lichen-community-systems/Flocking/wiki/Release-Plan)
 is documented in the wiki. Plans include:
  * Better support for interleaving Flocking unit generators with Web Audio API nodes
  * A new format for specifying connections between unit generators
@@ -73,7 +73,7 @@ Documentation and Demos
 Getting Started
 ---------------
 
-The latest stable release of Flocking can be downloaded from the [Flocking releases](https://github.com/continuing-creativity/Flocking/releases) page.
+The latest stable release of Flocking can be downloaded from the [Flocking releases](https://github.com/lichen-community-systems/Flocking/releases) page.
 
 Concatenated Flocking builds are included in the [dist directory](dist/).
 Flocking can also be built manually using Grunt.
@@ -329,9 +329,7 @@ on Mac, Windows, Linux, iOS, and Android.
 License
 ---------
 
-Flocking is distributed under the terms of both the MIT or GPL 2 Licenses.
-As a result, you can choose the license that best suits your
-project. The full text of Flocking's [MIT](MIT_LICENSE.txt) and [GPL](GPL-LICENSE.txt) licenses are at the root of the repository.
+Flocking is distributed under the terms of the [MIT license](MIT_LICENSE.txt).
 
 
 Credits

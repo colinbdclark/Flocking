@@ -1,9 +1,10 @@
 /*!
 * Flocking Math Unit Generator Unit Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-15, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -47,7 +48,7 @@ var fluid = fluid || require("infusion"),
 
     flock.test.midi.midiFreqUGenTests.run = function () {
         jqUnit.test("12TET/A440, constant rate messageSpec", function () {
-            var midiFreq = flock.parse.ugenDef({
+            var midiFreq = flock.interpret.ugenDef({
                 ugen: "flock.ugen.midiFreq",
                 note: 60
             });
@@ -72,7 +73,7 @@ var fluid = fluid || require("infusion"),
         });
 
         jqUnit.test("12TET/A440, control rate messageSpec", function () {
-            var midiFreq = flock.parse.ugenDef({
+            var midiFreq = flock.interpret.ugenDef({
                 ugen: "flock.ugen.midiFreq",
                 note: {
                     ugen: "flock.ugen.sequence",

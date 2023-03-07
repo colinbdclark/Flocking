@@ -2,7 +2,7 @@
  * Flocking Visual Playground Demos
  *   Copyright 2014-15, Colin Clark
  *
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  */
 
 /*global require*/

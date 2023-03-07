@@ -1,9 +1,10 @@
 /*!
 * Flocking Test Utilities
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-2017, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*jshint browser:true, node:true*/
@@ -590,13 +591,6 @@ var fluid = fluid || require("infusion"),
         flock.test.containsPositiveValues(output);
     };
 
-    flock.test.unbrokenAudioSignalInRange = function (output, expectedMin, expectedMax, range) {
-        output = range ? output.subarray(range.start, range.end) : output;
-        flock.test.audioSignalInRange(output, expectedMin, expectedMax);
-        flock.test.arrayUnbroken(output,
-            "The ugen should produce an unbroken audio tone.");
-    };
-
 
     fluid.registerNamespace("flock.test.ugen");
 
@@ -633,7 +627,7 @@ var fluid = fluid || require("infusion"),
 
         options.buffer = output;
 
-        return flock.parse.ugenForDef({
+        return flock.interpret.ugenForDef({
             ugen: "flock.test.ugen.mock",
             rate: rate || flock.rates.AUDIO,
             options: options

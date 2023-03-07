@@ -42,7 +42,7 @@ module.exports = function(grunt) {
             "src/evaluators.js",
             "src/synths/*.js",
             "src/buffers.js",
-            "src/parser.js",
+            "src/interpreter.js",
             "src/audiofile.js",
             "src/flocking-audiofile-converters.js",
             "src/audiofile-encoder.js",
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
         flockingAudioWorklet: [
             "src/core.js",
-            "src/parser.js",
+            "src/interpreter.js",
             "src/node-list.js",
             "src/evaluators.js",
             "src/ugens/core.js"

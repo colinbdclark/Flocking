@@ -1,9 +1,10 @@
 /*
 * Flocking Testing Components
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2013-2020, Colin Clark
-* Dual licensed under the MIT and GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*jshint browser:true*/

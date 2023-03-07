@@ -1,9 +1,10 @@
 /*!
 * Flocking Listening Unit Generator Unit Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-15, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -47,7 +48,7 @@ var fluid = fluid || require("infusion"),
     };
 
     QUnit.test("Constant value source input.", function () {
-        var tracker = flock.parse.ugenForDef(ampConstSignalDef);
+        var tracker = flock.interpret.ugenForDef(ampConstSignalDef);
         generateAndTestContinuousSamples(tracker, 64);
         // TODO: Why does an attack time of 0.00001 result in a ramp-up time of three samples, instead of just less than half a sample?
         QUnit.deepEqual(flock.copyBuffer(tracker.output, 3, 64), flock.generateBufferWithValue(61, 1.0),
@@ -70,7 +71,7 @@ var fluid = fluid || require("infusion"),
     };
 
     QUnit.test("Changing value source input.", function () {
-        var tracker = flock.parse.ugenForDef(ampDescendingLine);
+        var tracker = flock.interpret.ugenForDef(ampDescendingLine);
 
         var controlPeriods = Math.round(sampleRate / 64),
             i;

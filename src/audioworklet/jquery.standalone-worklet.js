@@ -14,7 +14,8 @@
  * See the AUTHORS.md file at the top-level directory of this distribution and at
  * https://github.com/fluid-project/infusion/raw/master/AUTHORS.md.
  *
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
+
  * http://jquery.org/license
  * Date: Thu May 12 15:04:36 2011 -0400
  */

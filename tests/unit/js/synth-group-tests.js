@@ -1,9 +1,10 @@
 /*
  * Flocking Group and Polyphonic Synth Tests
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2011-2017, Colin Clark
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
+
  */
 
 /*global require*/
@@ -57,7 +58,7 @@ var fluid = fluid || require("infusion"),
             freq: 110,
             mul: 0.1,
             options: {
-                buffer: flock.generate(64, 1)
+                buffer: flock.generateBufferWithValue(64, 1)
             }
         }
     });
@@ -69,7 +70,7 @@ var fluid = fluid || require("infusion"),
             freq: 220,
             mul: 0.2,
             options: {
-                buffer: flock.generate(64, 2)
+                buffer: flock.generateBufferWithValue(64, 2)
             }
         }
     });

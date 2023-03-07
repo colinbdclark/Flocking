@@ -1,9 +1,10 @@
 /*!
 * Flocking Buffer Unit Generator Unit Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-17, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -43,7 +44,7 @@ var fluid = fluid || require("infusion"),
                 channels: [flock.test.ascendingBuffer(sampleRate * 2.5, 0)] // 2.5 second buffer
             }
         });
-        flock.parse.bufferForDef.resolveBuffer(bufDesc, undefined, environment);
+        flock.interpret.bufferForDef.resolveBuffer(bufDesc, undefined, environment);
     };
 
     flock.test.ugen.bufferDuration.runTestAtRate = function (rate) {

@@ -1,9 +1,10 @@
 /*!
 * Flocking Random Unit Generator Unit Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-15, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require, Float32Array*/
@@ -59,7 +60,7 @@ var fluid = fluid || require("infusion"),
     };
 
     QUnit.test("flock.ugen.lfNoise()", function () {
-        var lfNoise = flock.parse.ugenDef({
+        var lfNoise = flock.interpret.ugenDef({
             ugen: "flock.ugen.lfNoise",
             inputs: {
                 freq: 4
@@ -79,7 +80,7 @@ var fluid = fluid || require("infusion"),
     });
 
     QUnit.test("flock.ugen.lfNoise() linear interpolation", function () {
-        var lfNoise = flock.parse.ugenDef({
+        var lfNoise = flock.interpret.ugenDef({
             ugen: "flock.ugen.lfNoise",
             inputs: {
                 freq: 4
@@ -100,7 +101,7 @@ var fluid = fluid || require("infusion"),
     fluid.registerNamespace("flock.test.noise");
 
     flock.test.noise.ugenInAudioRange = function (ugenName) {
-        var pink = flock.parse.ugenDef({
+        var pink = flock.interpret.ugenDef({
             ugen: ugenName
         }, undefined, {
             audioSettings: {

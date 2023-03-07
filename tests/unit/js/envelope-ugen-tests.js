@@ -1,9 +1,10 @@
 /*!
 * Flocking Envelope Unit Generator Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2014-2017, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -49,7 +50,7 @@ var fluid = fluid || require("infusion"),
 
         lineDef.inputs.duration = 64 / sampleRate; // 64 samples.
 
-        return flock.parse.ugenForDef(lineDef);
+        return flock.interpret.ugenForDef(lineDef);
     };
 
     flock.test.ugen.line.runTests = function (module) {
@@ -124,7 +125,7 @@ var fluid = fluid || require("infusion"),
         asrDef.inputs.attack = 1 / (sampleRate / 63);
         asrDef.inputs.release = 1 / (sampleRate / 63);
 
-        return flock.parse.ugenForDef(asrDef);
+        return flock.interpret.ugenForDef(asrDef);
     };
 
     flock.test.ugen.asr.testEnvelopeStage = function (buffer, numSamps, expectedStart, expectedEnd, stageName) {
@@ -235,7 +236,7 @@ var fluid = fluid || require("infusion"),
                 release: 0
             };
 
-            var asr = flock.parse.ugenForDef(squareASRDef);
+            var asr = flock.interpret.ugenForDef(squareASRDef);
             asr.gen(64);
             flock.test.arraySilent(asr.output,
                 "Before the gate has been opened, the output should be silent");

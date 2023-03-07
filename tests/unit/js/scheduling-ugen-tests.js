@@ -4,7 +4,8 @@
 * Copyright 2014-2015, Colin Clark,
 * Copyright 2015, OCAD University
 *
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -32,7 +33,7 @@ var fluid = fluid || require("infusion"),
     };
 
     var makeUGen = function (def) {
-        return flock.parse.ugenForDef(fluid.copy(def), undefined, {
+        return flock.interpret.ugenForDef(fluid.copy(def), undefined, {
             audioSettings: {
                 rates: {
                     audio: 48000
@@ -252,7 +253,7 @@ var fluid = fluid || require("infusion"),
 
     QUnit.test("Demand rate", function () {
         seqUGenDef.rate = "demand";
-        var seq = flock.parse.ugenDef(seqUGenDef);
+        var seq = flock.interpret.ugenDef(seqUGenDef);
 
         testSequences({
             ugen: seq,
@@ -288,7 +289,7 @@ var fluid = fluid || require("infusion"),
         flock.init();
 
         seqUGenDef.rate = "audio";
-        var seq = flock.parse.ugenDef(seqUGenDef);
+        var seq = flock.interpret.ugenDef(seqUGenDef);
 
         testSequences({
             ugen: seq,

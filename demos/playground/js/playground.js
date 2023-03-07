@@ -2,7 +2,7 @@
  * Flocking Playground
  *   Copyright 2014-2018, Colin Clark
  *
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  */
 
 /*global require*/
@@ -15,7 +15,7 @@ var fluid = fluid || require("infusion"),
 
     // TODO: Declarativize.
     flock.init({
-        chans: flock.ALL_CHANNELS
+        chans: 32
     });
     flock.debug.failHard = false;
 

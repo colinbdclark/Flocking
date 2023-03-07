@@ -7,7 +7,7 @@
  * https://github.com/colinbdclark/PolyDataView
  *
  * Copyright 2012, Colin Clark
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  *
  * Contributions:
  *   - getFloat32 and getFloat64, Copyright 2011 Christopher Chedeau
@@ -272,10 +272,10 @@ funcscope: false*/
 
 /*
  * Flocking Audio File Decoder Library
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2011-2014, Colin Clark
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
 */
 
 // Stub out fluid.registerNamespace in cases where we're in a Web Worker and Infusion is unavailable.

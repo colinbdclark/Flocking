@@ -1,9 +1,10 @@
 /*!
 * Flocking UGen Performance Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-2017, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -88,7 +89,7 @@ var fluid = fluid || require("infusion"),
     });
 
     var checkUGen = function (ugenDef, expectedCeil, msg) {
-        var ugen = flock.parse.ugenForDef(ugenDef),
+        var ugen = flock.interpret.ugenForDef(ugenDef),
             ugens = [ugen],
             inputName,
             input,

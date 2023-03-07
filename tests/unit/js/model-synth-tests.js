@@ -1,9 +1,10 @@
 /*
  * Flocking Model Synth Tests
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2015, OCAD University
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
+
  */
 
 /*global require*/

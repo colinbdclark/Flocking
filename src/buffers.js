@@ -1,9 +1,10 @@
 /*
 * Flocking Audio Buffers
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2013-14, Colin Clark
-* Dual licensed under the MIT and GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require, AudioBuffer*/
@@ -464,7 +465,7 @@ var fluid = fluid || require("infusion"),
 
     flock.bufferLoader.loadBuffer = function (bufDef, bufferTarget, that) {
         try {
-            flock.parse.bufferForDef(bufDef, bufferTarget, that.enviro);
+            flock.interpret.bufferForDef(bufDef, bufferTarget, that.enviro);
         } catch (e) {
             that.events.onError.fire(e.message);
         }
@@ -473,7 +474,7 @@ var fluid = fluid || require("infusion"),
     flock.bufferLoader.loadBuffers = function (that) {
         var bufferDefIdx = 1;
 
-        // TODO: This is a sign that flock.parse.bufferForDef is still terribly broken.
+        // TODO: This is a sign that flock.interpret.bufferForDef is still terribly broken.
         var bufferTarget = {
             setBuffer: function (decoded) {
                 that.buffers.push(decoded);

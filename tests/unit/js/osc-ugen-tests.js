@@ -1,9 +1,10 @@
 /*!
 * Flocking Oscillator Unit Generator Unit Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-15, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require, Float32Array*/
@@ -23,7 +24,7 @@ var fluid = fluid || require("infusion"),
     QUnit.module("flock.ugen.osc() tests");
 
     var makeOsc = function (freq, table, bufferSize, sampleRate) {
-        return flock.parse.ugenForDef({
+        return flock.interpret.ugenForDef({
             ugen: "flock.ugen.osc",
             inputs: {
                 freq: {
@@ -124,7 +125,7 @@ var fluid = fluid || require("infusion"),
 
     var makeAndPrimeOsc = function (ugenType, outputSize) {
         basicDef.ugen = ugenType;
-        var ug = flock.parse.ugenForDef(basicDef);
+        var ug = flock.interpret.ugenForDef(basicDef);
         ug.output = new Float32Array(outputSize);
         ug.gen(outputSize);
         return ug;
@@ -179,7 +180,7 @@ var fluid = fluid || require("infusion"),
             freq: freq,
             phase: phase
         };
-        var imp = flock.parse.ugenForDef(impulseDef),
+        var imp = flock.interpret.ugenForDef(impulseDef),
             numSamps = sampleRate;
 
         imp.output = new Float32Array(numSamps);

@@ -1,9 +1,10 @@
 /*
 * Flocking Unit Generator Benchmark Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-2014, Colin Clark
-* Dual licensed under the MIT and GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global sheep*/
@@ -24,7 +25,7 @@ var flock = flock || {};
 
         return {
             setup: function () {
-                var ug = flock.parse.ugenForDef(ugenDef),
+                var ug = flock.interpret.ugenForDef(ugenDef),
                     i,
                     input,
                     inputName,

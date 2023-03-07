@@ -1,9 +1,10 @@
 /*!
  * Flocking Buffer Tests
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2015-2017, Colin Clark
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
+
  */
 
 /*global require*/
@@ -202,8 +203,8 @@ var fluid = fluid || require("infusion"),
             }
         });
 
-        flock.parse.bufferForDef.resolveBuffer(catBuffer, undefined, s.enviro);
-        flock.parse.bufferForDef.resolveBuffer(dogBuffer, undefined, s.enviro);
+        flock.interpret.bufferForDef.resolveBuffer(catBuffer, undefined, s.enviro);
+        flock.interpret.bufferForDef.resolveBuffer(dogBuffer, undefined, s.enviro);
 
         // Set a full id reference.
         var catIdBufDef = {

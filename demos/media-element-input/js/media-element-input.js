@@ -2,7 +2,7 @@
  * Flocking Media Element Input Demo
  *   Copyright 2013-2014, Colin Clark
  *
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  */
 
 /*global fluid, flock*/

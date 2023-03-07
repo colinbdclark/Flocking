@@ -1,0 +1,35 @@
+<!--
+  Copyright 2023, Colin Clark
+  Licensed under the MIT license, see LICENSE.txt for details.
+-->
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Flocking Core: All Tests</title>
+
+        <link rel="stylesheet" media="screen" href="../../node_modules/infusion/tests/lib/qunit/css/qunit.css" />
+        <link rel="stylesheet" href="../../node_modules/infusion/tests/lib/qunit/addons/composite/qunit-composite.css">
+
+        <script src="../../node_modules/infusion/dist/infusion-all.js"></script>
+
+        <script src="../../node_modules/infusion/tests/lib/qunit/js/qunit.js"></script>
+        <script src="/testem.js"></script>
+        <script src="../../node_modules/infusion/tests/lib/qunit/addons/composite/qunit-composite.js"></script>
+
+        <script>
+            QUnit.testSuites("Flocking Core Tests", [
+                "html/core-tests.html",
+                "html/path-tests.html",
+                "html/interpreter-tests.html",
+                "html/osc-ugen-tests.html"
+            ]);
+        </script>
+    </head>
+
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture">
+        </div>
+    </body>
+</html>

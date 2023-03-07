@@ -1,9 +1,10 @@
 /*!
 * Flocking PlayBuffer Unit Generator Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-17, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -29,7 +30,7 @@ var fluid = fluid || require("infusion"),
         });
 
         // TODO: Why this instead of enviroment.registerBuffer(bufDesc)?
-        flock.parse.bufferForDef.resolveBuffer(bufDesc, undefined, enviro);
+        flock.interpret.bufferForDef.resolveBuffer(bufDesc, undefined, enviro);
     };
 
     fluid.registerNamespace("flock.test.ugen.playBuffer");
@@ -93,7 +94,7 @@ var fluid = fluid || require("infusion"),
         members: {
             player: {
                 expander: {
-                    funcName: "flock.parse.ugenForDef",
+                    funcName: "flock.interpret.ugenForDef",
                     args: ["{that}.options.ugenDef", "{environment}"]
                 }
             },
@@ -534,7 +535,7 @@ var fluid = fluid || require("infusion"),
 
     flock.test.ugen.playBuffer.makeUGen = function (template, overrides) {
         var options = fluid.extend({}, template, overrides);
-        return flock.parse.ugenForDef(options);
+        return flock.interpret.ugenForDef(options);
     };
 
     flock.test.ugen.playBuffer.genSpeedInput = function (speed) {

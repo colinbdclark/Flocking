@@ -2,7 +2,7 @@
  * Flocking Node Views
  *   Copyright 2014, Colin Clark
  *
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  */
 
 /*global require, dagre, jsPlumb, JSON5*/
@@ -429,8 +429,8 @@ var fluid = fluid || require("infusion"),
 
     flock.ui.nodeRenderer.synth.expandInputs = function (ugenDef) {
         // Expand scalar values into value unit generators.
-        var expanded = flock.parse.expandValueDef(ugenDef);
-        return flock.parse.expandInputs(expanded);
+        var expanded = flock.interpret.expandValueDef(ugenDef);
+        return flock.interpret.expandInputs(expanded);
     };
 
     flock.ui.nodeRenderer.synth.expandMultiInput = function (ugenDefs, options) {
@@ -461,7 +461,7 @@ var fluid = fluid || require("infusion"),
     };
 
     flock.ui.nodeRenderer.synth.expandDef = function (synthDef, enviro) {
-        // TODO: Copy pasted from flock.parser.ugenForDef. It needs refactoring.
+        // TODO: Copy pasted from flock.interpreter.ugenForDef. It needs refactoring.
         // TODO: should this be sourced elsewhere in this context?
         var options = {
             // TODO: This is hardcoded to audio rate, which is fine until we can edit value synths.
@@ -471,8 +471,8 @@ var fluid = fluid || require("infusion"),
             buffers: enviro.buffers
         };
 
-        if (!flock.parse.synthDef.hasOutUGen(synthDef)) {
-            synthDef = flock.parse.synthDef.makeOutUGenDef(synthDef, options);
+        if (!flock.interpret.synthDef.hasOutUGen(synthDef)) {
+            synthDef = flock.interpret.synthDef.makeOutUGenDef(synthDef, options);
         }
 
         return flock.ui.nodeRenderer.synth.expandAllInputs(synthDef, options);

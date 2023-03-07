@@ -1,46 +1,37 @@
 {
-  "name": "flocking",
-  "version": "3.0.1",
-  "description": "Creative audio synthesis for the Web",
-  "author": "Colin Clark",
-  "homepage": "https://flockingjs.org/",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/continuing-creativity/Flocking.git"
-  },
-  "bugs": "https://github.com/continuing-creativity/Flocking/issues",
-  "license": "(MIT OR GPL-2.0)",
-  "keywords": [
-    "Flocking",
-    "WebAudio",
-    "sound",
-    "audio",
-    "music",
-    "synthesis"
-  ],
-  "readmeFilename": "README.md",
-  "browser": "dist/flocking-all.js",
-  "devDependencies": {
-    "grunt": "1.5.2",
-    "grunt-contrib-clean": "2.0.1",
-    "grunt-contrib-concat": "2.1.0",
-    "grunt-contrib-uglify": "5.2.1",
-    "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-jshint": "3.2.0",
-    "sheep-benchmark": "colinbdclark/sheep.js",
-    "requirejs": "2.3.6",
-    "testem": "3.6.0"
-  },
-  "dependencies": {
-    "jquery": "3.6.0",
-    "infusion": "3.0.0",
-    "codemirror-infusion": "2.4.1",
-    "jsplumb": "1.7.9",
-    "dagre": "0.8.5",
-    "normalize.css": "8.0.1"
-  },
-  "scripts": {
-    "prepare": "node_modules/.bin/grunt",
-    "test": "node_modules/.bin/testem ci --file tests/unit/testem.json"
-  }
+    "name": "flocking",
+    "version": "4.0.0",
+    "description": "Creative audio synthesis for the Web",
+    "author": "Colin Clark",
+    "homepage": "https://flockingjs.org/",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/lichen-community-systems/Flocking.git"
+    },
+    "bugs": "https://github.com/lichen-community-systems/Flocking/issues",
+    "license": "MIT",
+    "keywords": [
+        "Flocking",
+        "WebAudio",
+        "sound",
+        "audio",
+        "music",
+        "synthesis"
+    ],
+    "readmeFilename": "README.md",
+    "dependencies": {
+        "infusion": "4.6.0",
+        "normalize.css": "8.0.1"
+    },
+    "devDependencies": {
+        "eslint": "8.32.0",
+        "eslint-config-fluid": "2.1.1",
+        "fluid-lint-all": "1.2.6",
+        "fluid-testem": "2.1.15-dev.20230118T154006Z.444e3b4.GH-32",
+        "testem": "3.10.1",
+        "sheep-benchmark": "colinbdclark/sheep.js"
+    },
+    "scripts": {
+        "test": "npx testem ci --file tests/core-unit/testem.json"
+    }
 }

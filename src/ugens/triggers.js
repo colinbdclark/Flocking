@@ -1,9 +1,9 @@
 /*
  * Flocking Trigger Unit Generators
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2011-2015, Colin Clark
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  */
 
 /*global require*/

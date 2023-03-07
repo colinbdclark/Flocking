@@ -1,9 +1,10 @@
 /*!
 * Flocking EnvGen Unit Generator Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2014-2017, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -68,7 +69,7 @@ var fluid = fluid || require("infusion"),
     flock.test.envGen.testUGenEnvelopeValidity = function (name, envelope) {
         // Create an envGen ugen instance and verify that it's valid.
         try {
-            flock.parse.ugenDef({
+            flock.interpret.ugenDef({
                 ugen: "flock.ugen.envGen",
                 envelope: envelope
             });

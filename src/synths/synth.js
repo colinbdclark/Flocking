@@ -1,9 +1,9 @@
 /*
  * Flocking Synth
- * https://github.com/continuing-creativity/flocking
+ * https://github.com/lichen-community-systems/flocking
  *
  * Copyright 2013-2018, Colin Clark
- * Dual licensed under the MIT and GPL Version 2 licenses.
+ * Released under the terms of the MIT license.
  */
 
 /*global require, flock*/
@@ -95,7 +95,7 @@ flock.synth.calcBlockSize = function (rate, audioSettings) {
 
 flock.synth.set = function (that, namedNodes, path, val, swap) {
     return flock.input.set(namedNodes, path, val, undefined, function (ugenDef, path, target, prev) {
-        return flock.synth.ugenValueParser(that, ugenDef, prev, swap);
+        return flock.synth.ugenValueinterpreter(that, ugenDef, prev, swap);
     });
 };
 
@@ -109,12 +109,12 @@ flock.synth.input = function (args, getFn, setFn) {
 };
 
 // TODO: Reduce all these dependencies on "that" (i.e. a synth instance).
-flock.synth.ugenValueParser = function (that, ugenDef, prev, swap) {
+flock.synth.ugenValueinterpreter = function (that, ugenDef, prev, swap) {
     if (ugenDef === null || ugenDef === undefined) {
         return prev;
     }
 
-    var parsed = flock.parse.ugenDef(ugenDef, that.enviro, {
+    var parsed = flock.interpret.ugenDef(ugenDef, that.enviro, {
         audioSettings: that.audioSettings,
         buses: that.enviro.busManager.buses,
         buffers: that.enviro.buffers

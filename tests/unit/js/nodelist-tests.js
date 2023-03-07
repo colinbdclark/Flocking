@@ -1,9 +1,10 @@
 /*!
 * Flocking NodeList Tests
-* https://github.com/continuing-creativity/flocking
+* https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-2017, Colin Clark
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the terms of the MIT license.
+
 */
 
 /*global require*/
@@ -349,7 +350,7 @@ var fluid = fluid || require("infusion"),
 
         var toReplace = synth.nodeList.namedNodes.gerbil,
             expectedInput = synth.nodeList.namedNodes.ear,
-            newUGen = flock.parse.ugenForDef({
+            newUGen = flock.interpret.ugenForDef({
                 id: "gerbil",
                 ugen: "flock.test.ugen.mock"
             });
