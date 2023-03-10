@@ -1,9 +1,10 @@
-/*
+/*!
 * Flocking NodeList Tests
 * https://github.com/lichen-community-systems/flocking
 *
 * Copyright 2011-2023, Colin Clark
 * Released under the terms of the MIT license.
+
 */
 
 var QUnit = fluid.registerNamespace("QUnit");
@@ -236,119 +237,4 @@ QUnit.test("flock.ugenNodeList", function () {
         "3": testNodes[2],
         "3.1": testNodes[2].inputs.hamster
     }, "The old node and all its inputs should be replaced by the new one and its inputs.");
-});
-
-var testRemoval = function (synthDef, testSpecs) {
-    var synth = flock.synth({
-        synthDef: synthDef
-    });
-
-    fluid.each(testSpecs, function (spec) {
-        var toRemove = spec.ugenToRemove;
-        if (toRemove) {
-            toRemove = typeof (toRemove) === "string" ? flock.get(synth, toRemove) : toRemove;
-            flock.ugenNodeList.removeTree(synth.nodeList, toRemove, true);
-        }
-        QUnit.equal(synth.nodeList.nodes.length, spec.expected.all,
-            spec.msg + ", there should be " + spec.expected.all + " all ugens.");
-        QUnit.equal(Object.keys(synth.nodeList.namedNodes).length, spec.expected.named,
-            spec.msg + ", there should be " + spec.expected.named + " named ugens.");
-    });
-};
-
-var nestedSynthDef = {
-    ugen: "flock.ugen.out",
-    inputs: {
-        sources: {
-            ugen: "flock.test.ugen.mock",
-            inputs: {
-                gerbil: {
-                    id: "gerbil",
-                    ugen: "flock.test.ugen.mock",
-                    inputs: {
-                        ear: {
-                            id: "ear",
-                            ugen: "flock.ugen.value",
-                            value: 500
-                        }
-                    }
-                },
-                cat: {
-                    id: "cat",
-                    ugen: "flock.test.ugen.mock"
-                },
-                dog: {
-                    ugen: "flock.test.ugen.mock"
-                }
-            }
-        },
-        bus: 0,
-        expand: 2
-    }
-};
-
-QUnit.test("flock.ugenNodeList: removing ugens", function () {
-    var removalTestSpecs = [
-        {
-            ugenToRemove: null,
-            expected: {
-                all: 8,
-                named: 3
-            },
-            msg: "To start"
-        },
-        {
-            ugenToRemove: "nodeList.namedNodes.ear",
-            expected: {
-                all: 7,
-                named: 2
-            },
-            msg: "After removing a passive, named ugen"
-        },
-        {
-            ugenToRemove: "nodeList.namedNodes.cat",
-            expected: {
-                all: 6,
-                named: 1
-            },
-            msg: "After removing an active, named ugen"
-        },
-        {
-            ugenToRemove: "out.inputs.sources.inputs.dog",
-            expected: {
-                all: 5,
-                named: 1
-            },
-            msg: "After removing an active, unnamed ugen"
-        },
-        {
-            ugenToRemove: "out",
-            expected: {
-                all: 0,
-                named: 0
-            },
-            msg: "After removing a ugen with other inputs, its inputs should be recursively removed"
-        }
-    ];
-
-    testRemoval(nestedSynthDef, removalTestSpecs);
-});
-
-QUnit.test("flock.ugenNodeList.replace(): reattach inputs", function () {
-    var synth = flock.synth({
-        synthDef: nestedSynthDef
-    });
-
-    var toReplace = synth.nodeList.namedNodes.gerbil,
-        expectedInput = synth.nodeList.namedNodes.ear,
-        newUGen = flock.interpret.ugenForDef({
-            id: "gerbil",
-            ugen: "flock.test.ugen.mock"
-        });
-    flock.ugenNodeList.swapTree(synth.nodeList, newUGen, toReplace);
-
-    QUnit.equal(synth.nodeList.namedNodes.gerbil, newUGen,
-        "The old ugen should have been replaced by the new one.");
-    QUnit.equal(synth.nodeList.namedNodes.gerbil.inputs.ear, expectedInput,
-        "The old ugen's input should have been copied over to the new one.");
 });

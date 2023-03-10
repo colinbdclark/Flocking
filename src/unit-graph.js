@@ -1,0 +1,74 @@
+/*
+ * Flocking Unit Graph
+ * https://github.com/lichen-community-systems/flocking
+ *
+ * Copyright 2011-2023, Colin Clark
+ * Released under the terms of the MIT license.
+ */
+
+fluid.defaults("flock.unitGraph", {
+    gradeNames: "fluid.component",
+
+    rate: flock.rates.AUDIO,
+
+    graphDef: {},
+
+    members: {
+        ugenList: {
+            expander: {
+                funcName: "flock.ugenNodeList"
+            }
+        }
+    },
+
+    components: {
+        audioEnvironment: {
+            type: "flock.audioEnvironment"
+        }
+    },
+
+    events: {
+        onUGenCreated: null
+    },
+
+    listeners: {
+        "onCreate.instantiateUGens": {
+            funcName: "flock.unitGraph.instantiateUGens",
+            args: [
+                "{that}.options.graphDef",
+                "{that}.options.rate",
+                "{that}.events.onUGenCreated.fire",
+                "{audioEnvironment}"
+            ]
+        },
+
+        "onUGenCreated.insertIntoUGenList": {
+            funcName: "flock.nodeList.tail",
+            args: ["{that}.ugenList", "{arguments}.0"]
+        }
+    }
+});
+
+flock.unitGraph.instantiateUGens = function (graphDef, rate, onUGenCreated,
+    audioEnvironment) {
+    if (!graphDef) {
+        fluid.log(fluid.logLevel.IMPORTANT,
+            "Warning: An empy graphDef was found while instantiating a unit generator tree." +
+            "Did you forget to include a 'graphDef' option for your UnitGraph?");
+    }
+
+    // Parse the graphDef into a graph of unit generators.
+    return flock.interpret.graphDef(graphDef, {
+        rate: rate,
+        // If the graph is running at either demand or schedule rate,
+        // override the rate of all non-constant ugens.
+        overrideRate: rate === flock.rates.SCHEDULED ||
+            rate === flock.rates.DEMAND,
+        // TODO: Refactor the interpreter into a component that
+        // fires an event instead of this visitor pattern.
+        visitors: [onUGenCreated],
+        buffers: audioEnvironment.buffers,
+        buses: audioEnvironment.buses,
+        audioSettings: audioEnvironment.options.audioSettings
+    });
+};

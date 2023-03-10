@@ -8,29 +8,29 @@
 
 fluid.registerNamespace("flock.interpret");
 
-flock.interpret.synthDef = function (ugenDef, options) {
-    if (!ugenDef) {
-        ugenDef = [];
+flock.interpret.graphDef = function (graphDef, options) {
+    if (!graphDef) {
+        graphDef = [];
     }
 
-    if (!flock.interpret.synthDef.hasOutUGen(ugenDef)) {
+    if (!flock.interpret.graphDef.hasOutUGen(graphDef)) {
         // We didn't get an out ugen specified, so we need to make one.
-        ugenDef = flock.interpret.synthDef.makeOutUGenDef(ugenDef, options);
+        ugenDef = flock.interpret.graphDef.makeOutUGenDef(graphDef, options);
     }
 
-    return flock.interpret.ugenForDef(ugenDef, options);
+    return flock.interpret.ugenForDef(graphDef, options);
 };
 
-flock.interpret.synthDef.hasOutUGen = function (synthDef) {
-    // TODO: This is hostile to third-party extension.
-    return !flock.isIterable(synthDef) && (
-        synthDef.id === flock.OUT_UGEN_ID ||
-        synthDef.ugen === "flock.ugen.out" ||
-        synthDef.ugen === "flock.ugen.valueOut"
+flock.interpret.graphDef.hasOutUGen = function (graphDef) {
+    // FIXME: This is hostile to third-party extension.
+    return !flock.isIterable(graphDef) && (
+        graphDef.id === flock.OUT_UGEN_ID ||
+        graphDef.ugen === "flock.ugen.out" ||
+        graphDef.ugen === "flock.ugen.valueOut"
     );
 };
 
-flock.interpret.synthDef.makeOutUGenDef = function (ugenDef, options) {
+flock.interpret.graphDef.makeOutUGenDef = function (ugenDef, options) {
     ugenDef = {
         id: flock.OUT_UGEN_ID,
         ugen: "flock.ugen.valueOut",
@@ -77,7 +77,7 @@ flock.interpret.instantiateUGen = function (ugenDef, interpretedInputs, options)
         sampleRate = rates[ugenDef.rate];
     }
 
-    // TODO: Infusion options merging!
+    // FIXME: Use Infusion's options merging!
     ugenDef.options = $.extend(true, {}, ugenDef.options, {
         sampleRate: sampleRate,
         rate: ugenDef.rate,
