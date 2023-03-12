@@ -26,8 +26,12 @@ flock.rates = {
 };
 
 flock.shim = {
-    AudioContext: (window.AudioContext || window.webkitAudioContext),
-    URL: (window.URL || window.webkitURL || window.msURL)
+    AudioContext: typeof window !== "undefined" ?
+        (window.AudioContext || window.webkitAudioContext) :
+        undefined,
+    URL: typeof window !== "undefined" ?
+        (window.URL || window.webkitURL || window.msURL) :
+        undefined
 };
 
 flock.debug = {
@@ -116,6 +120,15 @@ flock.generateBufferWithValue = function (length, value) {
 
 flock.generateSilentBuffer = function (length) {
     return new Float32Array(length);
+};
+
+flock.generateBuffers = function (numBufs, length) {
+    var bufs = [],
+        i;
+    for (i = 0; i < numBufs; i++) {
+        bufs[i] = new Float32Array(length);
+    }
+    return bufs;
 };
 
 flock.clearBuffer = function (buf) {

@@ -6,8 +6,6 @@
 * Released under the terms of the MIT license.
 */
 
-var $ = fluid.registerNamespace("jQuery");
-
 flock.ugenDefaults = function (path, defaults) {
     if (arguments.length === 1) {
         return flock.ugenDefaults.store[path];

@@ -24,14 +24,16 @@
         "normalize.css": "8.0.1"
     },
     "devDependencies": {
-        "eslint": "8.32.0",
+        "eslint": "8.36.0",
         "eslint-config-fluid": "2.1.1",
-        "fluid-lint-all": "1.2.6",
-        "fluid-testem": "2.1.15-dev.20230118T154006Z.444e3b4.GH-32",
+        "fluid-lint-all": "1.2.8",
+        "fluid-testem": "2.1.15",
         "testem": "3.10.1",
-        "sheep-benchmark": "colinbdclark/sheep.js"
+        "sheep-benchmark": "colinbdclark/sheep.js",
+        "concat": "3.0.0"
     },
     "scripts": {
-        "test": "npx testem ci --file tests/core-unit/testem.json"
+        "test": "npx testem ci --file tests/core-unit/testem.json",
+        "build-worklet": "node build-support/build-worklet.js"
     }
 }

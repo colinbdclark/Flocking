@@ -38,7 +38,9 @@ fluid.defaults("flock.unitGraph", {
                 "{that}.options.graphDef",
                 "{that}.options.rate",
                 "{that}.events.onUGenCreated.fire",
-                "{audioEnvironment}"
+                "{audioEnvironment}.buses",
+                "{audioEnvironment}.buffers",
+                "{audioEnvironment}.options.audioSettings"
             ]
         },
 
@@ -49,8 +51,8 @@ fluid.defaults("flock.unitGraph", {
     }
 });
 
-flock.unitGraph.instantiateUGens = function (graphDef, rate, onUGenCreated,
-    audioEnvironment) {
+flock.unitGraph.instantiateUGens = function (graphDef,
+    rate, onUGenCreated, buses, buffers, audioSettings) {
     if (!graphDef) {
         fluid.log(fluid.logLevel.IMPORTANT,
             "Warning: An empy graphDef was found while instantiating a unit generator tree." +
@@ -67,8 +69,8 @@ flock.unitGraph.instantiateUGens = function (graphDef, rate, onUGenCreated,
         // TODO: Refactor the interpreter into a component that
         // fires an event instead of this visitor pattern.
         visitors: [onUGenCreated],
-        buffers: audioEnvironment.buffers,
-        buses: audioEnvironment.buses,
-        audioSettings: audioEnvironment.options.audioSettings
+        buffers: buffers,
+        buses: buses,
+        audioSettings: audioSettings
     });
 };

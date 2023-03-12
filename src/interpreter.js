@@ -15,7 +15,7 @@ flock.interpret.graphDef = function (graphDef, options) {
 
     if (!flock.interpret.graphDef.hasOutUGen(graphDef)) {
         // We didn't get an out ugen specified, so we need to make one.
-        ugenDef = flock.interpret.graphDef.makeOutUGenDef(graphDef, options);
+        graphDef = flock.interpret.graphDef.makeOutUGenDef(graphDef, options);
     }
 
     return flock.interpret.ugenForDef(graphDef, options);

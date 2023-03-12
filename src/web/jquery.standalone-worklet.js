@@ -12,22 +12,21 @@
  * Copyright 2011, John Resig
  * Copyright The Infusion copyright holders
  * See the AUTHORS.md file at the top-level directory of this distribution and at
- * https://github.com/fluid-project/infusion/raw/master/AUTHORS.md.
+ * https://github.com/fluid-project/infusion/raw/main/AUTHORS.md.
  *
- * Released under the terms of the MIT license.
-
+ * Dual licensed under the MIT or GPL Version 2 licenses.
  * http://jquery.org/license
  * Date: Thu May 12 15:04:36 2011 -0400
  */
 
-/* global jQuery:true, global */
+/* global global */
 /* exported jQuery */
 
-var fluid_3_0_0 = fluid_3_0_0 || {};
-var fluid = fluid || fluid_3_0_0;
+"use strict";
 
-(function (fluid) {
-    "use strict";
+var fluid = fluid || {}; // eslint-disable-line no-redeclare
+
+(function () {
 
     // Save a reference to some core methods
     var toString = Object.prototype.toString;
@@ -40,8 +39,18 @@ var fluid = fluid || fluid_3_0_0;
     // Map over the $ in case of overwrite
     var _$ = globalScope.$;
 
-    var jQuery = fluid.jQueryStandalone = {
+    var jQuery = fluid.jQueryStandalone = function (/* arguments */) {
+        return jQuery.constructor.apply(null, arguments);
+    };
 
+    // Define all the members in a fresh object, so that they can later be copied onto the function just defined
+    var jQueryMembers = {
+        globalScope: globalScope,
+
+        // A placeholder for the jQuery constructor function, which will be patched elsewhere
+        constructor: function () {
+            return [];
+        },
         // The current version of jQuery being used
         jquery: "1.6.1-fluidStandalone",
 
@@ -151,6 +160,9 @@ var fluid = fluid || fluid_3_0_0;
         }
     };
 
-})(fluid_3_0_0);
+    jQueryMembers.extend(jQuery, jQueryMembers);
 
-var jQuery = fluid.jQueryStandalone;
+})();
+
+var jQuery = fluid.jQueryStandalone; // eslint-disable-line no-redeclare
+var $ = jQuery; // eslint-disable-line no-redeclare, no-unused-vars
