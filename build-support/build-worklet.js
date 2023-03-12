@@ -2,7 +2,7 @@ const concat = require("concat");
 
 let files = [
     // Infusion
-    "src/audioworklet/jquery.standalone-worklet.js",
+    "src/web/jquery.standalone-worklet.js",
     "node_modules/infusion/src/framework/core/js/Fluid.js",
     "node_modules/infusion/src/framework/core/js/FluidDebugging.js",
     "node_modules/infusion/src/framework/core/js/FluidPromises.js",
@@ -17,7 +17,7 @@ let files = [
     "src/audio-environment.js",
     "src/node-list.js",
     "src/interpreter.js",
-    "src/unit-graph.js",
+    "src/unit-generator-graph.js",
     "src/evaluators.js",
     "src/ugens/core.js",
     "src/ugens/oscillators.js",

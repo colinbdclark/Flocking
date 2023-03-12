@@ -6,7 +6,7 @@
  * Released under the terms of the MIT license.
  */
 
-fluid.defaults("flock.unitGraph", {
+fluid.defaults("flock.unitGeneratorGraph", {
     gradeNames: "fluid.component",
 
     rate: flock.rates.AUDIO,
@@ -33,7 +33,7 @@ fluid.defaults("flock.unitGraph", {
 
     listeners: {
         "onCreate.instantiateUGens": {
-            funcName: "flock.unitGraph.instantiateUGens",
+            funcName: "flock.unitGeneratorGraph.instantiateUGens",
             args: [
                 "{that}.options.graphDef",
                 "{that}.options.rate",
@@ -51,12 +51,12 @@ fluid.defaults("flock.unitGraph", {
     }
 });
 
-flock.unitGraph.instantiateUGens = function (graphDef,
+flock.unitGeneratorGraph.instantiateUGens = function (graphDef,
     rate, onUGenCreated, buses, buffers, audioSettings) {
     if (!graphDef) {
         fluid.log(fluid.logLevel.IMPORTANT,
             "Warning: An empy graphDef was found while instantiating a unit generator tree." +
-            "Did you forget to include a 'graphDef' option for your UnitGraph?");
+            "Did you forget to include a 'graphDef' option for your unitGeneratorGraph?");
     }
 
     // Parse the graphDef into a graph of unit generators.

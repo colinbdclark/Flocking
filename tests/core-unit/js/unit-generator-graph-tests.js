@@ -10,7 +10,7 @@ var QUnit = fluid.registerNamespace("QUnit");
 
 QUnit.module("Unit Graph Tests");
 
-fluid.defaults("flock.test.unitGraph.context", {
+fluid.defaults("flock.test.unitGeneratorGraph.context", {
     gradeNames: "fluid.component",
 
     components: {
@@ -18,8 +18,8 @@ fluid.defaults("flock.test.unitGraph.context", {
             type: "flock.audioEnvironment"
         },
 
-        unitGraph: {
-            type: "flock.unitGraph"
+        unitGeneratorGraph: {
+            type: "flock.unitGeneratorGraph"
         }
     }
 });
@@ -103,9 +103,9 @@ QUnit.test("Unit Graph/ugenNodeList: removing ugens", function () {
         }
     ];
 
-    let context = flock.test.unitGraph.context({
+    let context = flock.test.unitGeneratorGraph.context({
         components: {
-            unitGraph: {
+            unitGeneratorGraph: {
                 options: {
                     graphDef: nestedGraphDef
                 }
@@ -117,15 +117,15 @@ QUnit.test("Unit Graph/ugenNodeList: removing ugens", function () {
         var toRemove = spec.ugenToRemove;
         if (toRemove) {
             toRemove = typeof (toRemove) === "string" ?
-                flock.get(context.unitGraph, toRemove) : toRemove;
-            flock.ugenNodeList.removeTree(context.unitGraph.ugenList,
+                flock.get(context.unitGeneratorGraph, toRemove) : toRemove;
+            flock.ugenNodeList.removeTree(context.unitGeneratorGraph.ugenList,
                  toRemove, true);
         }
-        QUnit.equal(context.unitGraph.ugenList.nodes.length,
+        QUnit.equal(context.unitGeneratorGraph.ugenList.nodes.length,
             spec.expected.all,
             spec.msg + ", there should be " + spec.expected.all +
                 " all ugens.");
-        QUnit.equal(Object.keys(context.unitGraph.ugenList.namedNodes).length,
+        QUnit.equal(Object.keys(context.unitGeneratorGraph.ugenList.namedNodes).length,
             spec.expected.named,
             spec.msg + ", there should be " + spec.expected.named +
                 " named ugens.");

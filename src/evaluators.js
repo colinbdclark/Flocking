@@ -18,8 +18,8 @@ flock.evaluate.ugens = function (ugens) {
     }
 };
 
-flock.evaluate.unitGraph = function (unitGraph) {
-    flock.evaluate.ugens(unitGraph.ugenList.nodes);
+flock.evaluate.unitGeneratorGraph = function (unitGeneratorGraph) {
+    flock.evaluate.ugens(unitGeneratorGraph.ugenList.nodes);
 };
 
 flock.evaluate.clearBuses = function (buses, numBuses, busLen) {

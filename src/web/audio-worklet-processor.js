@@ -22,7 +22,7 @@ flock.audioWorklet.outputSilence = function (outputs) {
 class FlockingAudioWorkletProcessor extends AudioWorkletProcessor {
     constructor() {
         super();
-        this.unitGraph = flock.unitGraph({
+        this.unitGeneratorGraph = flock.unitGeneratorGraph({
             graphDef: {
                 ugen: "flock.ugen.sinOsc",
                 freq: 440
@@ -31,8 +31,8 @@ class FlockingAudioWorkletProcessor extends AudioWorkletProcessor {
     }
 
     process (inputs, outputs, parameters) {
-        let audioEnvironment = this.unitGraph.audioEnvironment;
-        let ugens = this.unitGraph.ugenList.nodes;
+        let audioEnvironment = this.unitGeneratorGraph.audioEnvironment;
+        let ugens = this.unitGeneratorGraph.ugenList.nodes;
         let audioSettings = audioEnvironment.options.audioSettings;
         let blockSize = audioSettings.blockSize;
         let numBlocks = audioSettings.numBlocks;
