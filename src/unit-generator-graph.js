@@ -28,7 +28,8 @@ fluid.defaults("flock.unitGeneratorGraph", {
     },
 
     events: {
-        onUGenCreated: null
+        onUGenCreated: null,
+        afterUGensCreated: null
     },
 
     listeners: {
@@ -42,6 +43,12 @@ fluid.defaults("flock.unitGeneratorGraph", {
                 "{audioEnvironment}.buffers",
                 "{audioEnvironment}.options.audioSettings"
             ]
+        },
+
+        "onCreate.fireAfterUGensCreated": {
+            priority: "after:instantiateUGens",
+            func: "{that}.events.afterUGensCreated.fire",
+            args: ["{that}.ugenList"]
         },
 
         "onUGenCreated.insertIntoUGenList": {

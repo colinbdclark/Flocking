@@ -22,6 +22,13 @@ flock.evaluate.unitGeneratorGraph = function (unitGeneratorGraph) {
     flock.evaluate.ugens(unitGeneratorGraph.ugenList.nodes);
 };
 
+flock.evaluate.ugenLists = function (ugenLists) {
+    for (let i = 0; i < ugenLists.length; i++) {
+        let ugenList = ugenLists[i];
+        flock.evaluate.ugens(ugenList.nodes);
+    }
+};
+
 flock.evaluate.clearBuses = function (buses, numBuses, busLen) {
     for (let i = 0; i < numBuses; i++) {
         let bus = buses[i];

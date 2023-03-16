@@ -19,6 +19,27 @@
         p.then(function () {
             flockingNode = new AudioWorkletNode(ctx,
             "FlockingProcessor");
+            flockingNode.port.postMessage({
+                graphs: {
+                    root: {
+                        ugen: "flock.ugen.sinOsc",
+                        freq: 440,
+                        mul: 0.1
+                    },
+
+                    third: {
+                        ugen: "flock.ugen.sinOsc",
+                        freq: 220 * 5/4,
+                        mul: 0.1
+                    },
+
+                    fifth: {
+                        ugen: "flock.ugen.sinOsc",
+                        freq: 220 * 3/2,
+                        mul: 0.1
+                    }
+                }
+            });
             flockingNode.connect(ctx.destination);
         });
 
