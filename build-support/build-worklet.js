@@ -21,6 +21,7 @@ let files = [
     "src/evaluators.js",
     "src/ugens/core.js",
     "src/ugens/oscillators.js",
+    "src/web/audio-worklet-host.js",
     "src/web/audio-worklet-processor.js",
 
     // Conformance to contemporary corporate development orthodoxy
